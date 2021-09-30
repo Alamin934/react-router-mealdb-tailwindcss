@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react';
 import Meals from '../Meals/Meals';
 
 const Resturent = () => {
-
+    //Searching functionality using event handler and state
     const [search, setSearch] = useState('');
+    const handleSearchText = (e) => {
+        const searchText = e.target.value.toLowerCase();
+        setSearch(searchText);
+    }
+
+    //Load data from API
     const [meals, setMeals] = useState([]);
-
-
     useEffect(() => {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
             .then(res => res.json())
             .then(data => setMeals(data.meals))
     }, [search]);
-
-    const handleSearchText = (e) => {
-        const searchText = e.target.value;
-        setSearch(searchText);
-    }
     return (
         <div>
             <h2 className="text-4xl font-bold">This is Resturent Page</h2>
