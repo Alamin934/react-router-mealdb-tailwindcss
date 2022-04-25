@@ -17,14 +17,14 @@ const Resturent = () => {
             .then(data => setMeals(data.meals))
     }, [search]);
     return (
-        <div>
+        <div className='container mx-auto px-20'>
             <h2 className="text-4xl font-bold">This is Resturent Page</h2>
             <div>
                 <input
                     type="text"
                     onChange={handleSearchText}
                     placeholder="Search by meal name..."
-                    className="border border-gary-700 w-2/4 p-2 rounded-sm mt-4  focus:outline-none focus:border-red-700"
+                    className="border border-red-700 w-2/4 p-2 rounded-sm mt-4  focus:outline-none focus:border-red-700"
                 />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5 px-5">
